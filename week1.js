@@ -86,45 +86,90 @@ function CountingSort1(arr) {
 }
 
 function Pangrams(str) {
-  const aplh = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-  let ret = 'pangram';
+  const aplh = [
+    "a",
+    "b",
+    "c",
+    "d",
+    "e",
+    "f",
+    "g",
+    "h",
+    "i",
+    "j",
+    "k",
+    "l",
+    "m",
+    "n",
+    "o",
+    "p",
+    "q",
+    "r",
+    "s",
+    "t",
+    "u",
+    "v",
+    "w",
+    "x",
+    "y",
+    "z",
+  ];
+  let ret = "pangram";
   str = str.toLowerCase();
-  aplh.forEach(a => {
+  aplh.forEach((a) => {
     if (str.indexOf(a) < 0) {
-      ret = 'not pangram';
+      ret = "not pangram";
       return ret;
     }
   });
   return ret;
 }
 
-// Not working for >=
 function PermutingTwoArrays(k, A, B) {
-  let Amap = new Map();
-  let Bmap = new Map();
-  A.map(val => {
-    const diff = k - val;
-    let count = 1;
-    if (Amap.has(diff)) {
-     count = Amap.get(diff) + 1;
+  A = A.sort((a, b) => a - b);
+  B = B.sort((a, b) => b - a);
+  let res = "YES";
+  for (let i = 0; i < A.length; i++) {
+    if (A[i] + B[i] < k ) {
+      res = "NO";
+      break;
     }
-    Amap.set(diff, count);
-  });
-  console.log(Amap);
-  B.map(val => {
-    let count = 1;
-    if (Bmap.has(val)) {
-     count = Bmap.get(val) + 1;
-    }
-    Bmap.set(val, count);
-  });
-  console.log(Bmap);
-  let res = 'YES';
-  Amap.forEach((value, key) => {
-    if (!Bmap.has(key) || Bmap.get(key) < value) {
-      console.log('missing ', key);
-      res = 'NO';
-    }
-  });
+  }
   return res;
 }
+// console.log(PermutingTwoArrays(10, [2, 1, 3], [7, 8, 9]));
+// console.log(PermutingTwoArrays(5, [1, 2, 2, 1], [3, 3, 3, 4]));
+
+function SubArrayDivision(s, d, m) {
+  let count = 0;
+  for (let i = 0; i < s.length; i++) {
+    if (m == 1 && s[i] == d) {
+      return 1;
+    }
+    let j = i;
+    let sum = 0;
+    let sumVal = [];
+    while (sum < d && sumVal.length < m && j < s.length) {
+      sum += s[j];
+      sumVal.push(s[j]);
+      j++;
+    }
+    if (sum === d && sumVal.length === m) {
+      count++;
+    }
+  }
+  return count;
+}
+
+// console.log('** is ', SubArrayDivision([2,2,1,3,2], 4, 2));
+
+function flippingBits(n) {
+  let k = n.toString(2).padStart(32, '0');
+  let res = '';
+  for (let char of k) {
+    res += char == '0' ? '1' : '0';
+  }
+  return parseInt(res, 2);
+}
+
+// console.log(flippingBits(3));
