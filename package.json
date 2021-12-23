@@ -1,0 +1,20 @@
+{
+  "name": "hackerrank-practice",
+  "version": "1.0.0",
+  "description": "Project for preparing coding interview",
+  "main": "main.js",
+  "scripts": {
+    "test": "node main"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sargurgn/hackerrank-practice.git"
+  },
+  "type": "module",
+  "author": "Narasimhan Gopinath",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sargurgn/hackerrank-practice/issues"
+  },
+  "homepage": "https://github.com/sargurgn/hackerrank-practice#readme"
+}
