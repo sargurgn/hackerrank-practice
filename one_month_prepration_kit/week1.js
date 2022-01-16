@@ -130,7 +130,7 @@ function PermutingTwoArrays(k, A, B) {
   B = B.sort((a, b) => b - a);
   let res = "YES";
   for (let i = 0; i < A.length; i++) {
-    if (A[i] + B[i] < k ) {
+    if (A[i] + B[i] < k) {
       res = "NO";
       break;
     }
@@ -160,16 +160,32 @@ function SubArrayDivision(s, d, m) {
   }
   return count;
 }
-
 // console.log('** is ', SubArrayDivision([2,2,1,3,2], 4, 2));
 
 function flippingBits(n) {
-  let k = n.toString(2).padStart(32, '0');
-  let res = '';
+  let k = n.toString(2).padStart(32, "0");
+  let res = "";
   for (let char of k) {
-    res += char == '0' ? '1' : '0';
+    res += char == "0" ? "1" : "0";
   }
   return parseInt(res, 2);
 }
-
 // console.log(flippingBits(3));
+
+// Mock Test
+function flippingMatrix(matrix) {
+  let sum = 0;
+  for (let row = 0; row < matrix.length/2; row++) {
+    for (let col = 0; col < matrix.length/2; col++) {
+        sum += Math.max(Math.max(matrix[row][col], matrix[row][matrix.length - col - 1]), Math.max(matrix[matrix.length - row - 1][col], matrix[matrix.length - row - 1][matrix.length - col - 1]));                
+    }
+  }
+  return sum;
+}
+
+console.log(flippingMatrix([
+  [112, 42, 83, 119],
+  [56, 125, 56, 49],
+  [15, 78, 101, 43],
+  [62, 98, 114, 108],
+]));
