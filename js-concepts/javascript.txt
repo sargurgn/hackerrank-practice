@@ -1,0 +1,17 @@
+1. Prototypal inheritance
+Inheritance.js
+2. Call, Bind and Apply
+CallBindApply.js
+3. Writing polyfill for bind function.
+polyfill is a browser fallback for any un-implemented functionality.
+
+4. Execution context and Call Stack
+5. Hoisting
+6. Functions & Variable environment
+7. window & this keyword
+8. what is undefined?
+9. Scope chain and lexical environment
+10. Shadowing . let, const and var scopes.
+11. Closures
+
+
