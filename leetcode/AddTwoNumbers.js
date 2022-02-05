@@ -3,55 +3,45 @@ function ListNode(val, next) {
   this.next = next === undefined ? null : next;
 }
 
-var addTwoNumbers = function(l1, l2) {
-    
-    let sum = parseInt(getVal(l1), 10) + parseInt(getVal(l2), 10);
-    
-    sum = sum.toLocaleString('fullwide', {useGrouping: false});
-    console.log(sum);
-    var head = null;
-    for (let i = sum.length - 1; i >= 0; i--) {
-       let node = new ListNode(sum[i], null);
-        if (head === null) {
-            head = node;
-        } else {
-            let currentNode = head;
-            while (currentNode.next) {
-                currentNode = currentNode.next;
-            }
-            currentNode.next = node;
-        }
-    }
-    return head;
+const insertNode = function(val, list) {
+  let currentNode = list;
+  while (currentNode.next) {
+    currentNode = currentNode.next;
+  }
+  currentNode.next = new ListNode(val);
 }
 
-function getVal(list) {
-    let str = '';
-    let currentNode = list;
-    while (currentNode) {
-        str = currentNode.val + str;
-        currentNode = currentNode.next;
+const addTwoNumbers = function (l1, l2) {
+  let carry = 0;
+  let resultNode;
+  while (l1 || l2 || carry > 0) {
+    let sum = 0;
+    console.log("l1 " + l1?.val + " l2 " + l2?.val);
+    sum += l1 ? l1.val : 0;
+    sum += l2 ? l2.val : 0;
+    sum += carry;
+    carry = sum > 9 ? parseInt(sum / 10) : 0;
+    let num = sum > 9 ? sum % 10 : sum;
+    console.log("sum is " + sum + " num is " + num + " carry is " + carry);
+    if (resultNode) {
+      insertNode(num, resultNode);
+    } else {
+      resultNode = new ListNode(num);
     }
-    console.log(str);
-    return str;
+    l1 = l1?.next;
+    l2 = l2?.next;
+  }
+  return resultNode;
+};
+
+const l1 = [2, 4, 3];
+let list1 = new ListNode(2);
+for (let i = 1; i < l1.length; i++) {
+  insertNode(l1[i], list1);
 }
-
-
-
-const l1 = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1];
-const l2 = [5,6,4];
-let list1 = new ListNode(1);
-for (let i = 0; i < l1.length; i++) {
-    let currentNode = list1;
-    while (currentNode.next) {
-        currentNode = currentNode.next;
-    }
-    currentNode.next = new ListNode(l1[i]);
-}
-// console.log(list1);
-    
+const l2 = [5, 6, 4];
 let list2 = new ListNode(5);
-list2.next = new ListNode(6);
-list2.next.next = new ListNode(4);
-// console.log(list2);
-console.log(addTwoNumbers(list1, list2));
+for (let i = 1; i < l2.length; i++) {
+  insertNode(l2[i], list2);
+}
+addTwoNumbers(list1, list2);
