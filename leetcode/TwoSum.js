@@ -9,7 +9,6 @@ var twoSumUsingMap = function(nums, target) {
 };
 
 var twoSumUsingObject = function(nums, target) {
-    
     let obj = {}
     for (let i = 0; i < nums.length; i++) {
         if ((target - nums[i]) in obj) {
