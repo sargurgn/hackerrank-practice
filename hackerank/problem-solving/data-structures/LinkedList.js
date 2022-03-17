@@ -143,11 +143,11 @@ class Node {
   }
 }
 
-const list = new LinkedList();
-list.insertFirst(100);
-list.insertLast(200);
-list.insertLast(300);
-list.insertLast(50);
-list.printList();
-list.reverseList();
-list.printList();
+const head = new LinkedList();
+head.insertFirst(100);
+head.insertLast(200);
+head.insertLast(300);
+head.insertLast(50);
+head.printList();
+head.reverseList();
+head.printList();

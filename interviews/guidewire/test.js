@@ -21,8 +21,6 @@ function sol(N) {
 function sol2(A, K, L) {
     if (A.length < K + L)
         return -1;
-
-    let startIndex = 0;
     let start = 0;
     let aliceMax = findMaxSum(0, );
     for (let i = 0; i < A.length; i++) {

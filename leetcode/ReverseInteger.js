@@ -1,18 +1,18 @@
-const reverse = function(x) {
-    let lastIndex = parseInt(Math.log10(Math.abs(x)));
-    const isNegative = x < 0 ? true : false;
-    let finalInt = 0;
-    let reminder = Math.abs(x);
-    for (let i = lastIndex; i >= 0; i--) {
-        const digit = parseInt(reminder/10**i) * (10**(lastIndex-i));
-        finalInt += digit;
-        reminder = reminder%10**i;
+// Leetcode 7. Reverse Integer
+var reverse = function(x) {
+    let temp = Math.abs(x);
+    let reversedNum = 0;
+    while (temp >= 1) {
+        let digit = Math.floor(temp % 10);
+        reversedNum = Math.floor(reversedNum * 10 + digit);
+        temp = Math.floor(temp / 10);
     }
-    if (finalInt === 0 || finalInt > (Math.pow(2, 31) - 1) || finalInt < -(Math.pow(2, 31) - 1)) {
+    if (reversedNum === 0 || reversedNum > (Math.pow(2, 31) - 1) || reversedNum < -(Math.pow(2, 31) - 1)) {
         return 0;
     }
-    return isNegative ? finalInt * -1 : finalInt;
-};
+    return isNegative ? reversedNum * -1 : reversedNum;
+}
 
-console.log('Reverse is ', reverse(1534236469));
-console.log(2147483648 - 1534236469);
+console.log('Reverse is ', reverse2(-123));
+console.log('Reverse is ', reverse2(1534236469));
+console.log('Reverse is ', reverse2(1000000001));

@@ -1,3 +1,4 @@
+// Leetcode 1. Two Sum
 var twoSumUsingMap = function(nums, target) {
     let map = new Map();
     for (let i = 0; i < nums.length; i++) {

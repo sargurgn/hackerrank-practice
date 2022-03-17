@@ -1,3 +1,4 @@
+// Leetcode 217. Contains Duplicate
 const containsDuplicate = function(nums) {
     let map = new Map();
     nums.map((e, i) => {

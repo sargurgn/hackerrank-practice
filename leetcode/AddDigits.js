@@ -1,3 +1,4 @@
+// Leetcode 258. Add Digits
 const addDigits = function(num) {
     if (num === 0) return 0;
     const lastIndex = parseInt(Math.log10(num));

@@ -1,3 +1,4 @@
+// Leetcode 3. Longest Substring Without Repeating Characters
 const bruteForceApproach = function(s) {
     const subStrLen = [];
     for (let i = 0; i < s.length; i++) {
