@@ -1,0 +1,91 @@
+Equality
+----------
+let a = true
+let b = true
+let c = false
+console.log(a && b || c) // true
+
+const x = NaN
+const y = NaN
+console.log(x === y) // false
+
+Array
+------
+const arr = [1, 2, 3, 4, 5]
+arr = [2,3]
+console.log(arr)
+
+const arr = [1, 2, 3, 4, 5]
+arr.push(6)
+console.log(arr)
+
+var arr = [1, 2, 3, 4, 5]
+var arrB = arr.slice()
+arrB[0] = 20
+console.log(arr) // [ 1, 2, 3, 4, 5 ]
+// If slice is not there then [ 20, 2, 3, 4, 5 ]
+
+String Operations
+-------------------
+console.log(2 + '3' + 4) // 234
+console.log("10" - 5) // 5
+console.log([1,2]+![]) // 1,2false
+console.log([1] + [2]) // 12
+
+let str = 'Test'
+str.length = 0
+console.log(str.length) // 4
+
+let str = 'Hello World'
+str[0] = 'N'
+console.log(str) // Hello World
+
+Object
+--------
+const fullName = 'Test'
+age = 21
+
+console.log(delete fullName) // false
+console.log(delete age) // true
+
+var objA = {prop: 42}
+var objB = objA
+objB.prop = 90
+console.log(objA) // 90
+
+
+Functions
+----------
+const arrowFn = () => {
+    console.log(count)
+}
+arrowFn() // ReferenceError: count is not defined
+
+const arrowFn = () => {
+    console.log(this.count)
+}
+arrowFn() // undefined
+
+
+const arrowFn = () => {
+  let count = 1
+  console.log(this.count)
+}
+arrowFn() // undefined
+
+SetTimeout
+-----------
+for (var i = 0; i < 5; i++) {
+    setTimeout(() => {
+        console.log(i)
+    }, 0)
+} // 5 5 5 5 5
+
+
+let timer = setTimeout(() => {
+    console.log('Hello')
+}, 0)
+clearTimeout(timer) // nothing
+
+
+
