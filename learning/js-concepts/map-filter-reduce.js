@@ -29,7 +29,7 @@ console.log(sum)
 Array.prototype.customMap = function (cbfn) {
   let temp = []
   for (let i = 0; i < this.length; i++) {
-    temp.push(cbfn(this[i], i, this)
+    temp.push(cbfn(this[i], i, this))
   }
   return temp;
 }
@@ -46,6 +46,7 @@ Array.prototype.customFilter = function(cbfn) {
       temp.push(this[i])
     }
   }
+  return temp
 }
 let customMoreThanTwo = nums.customFilter((num) => {
   return num > 2
@@ -56,7 +57,7 @@ console.log(customMoreThanTwo)
 Array.prototype.customReduce = function(cbfn, initVal) {
   var acc = initVal
   for (let i = 0; i < this.length; i++) {
-    acc = acc ? cb (acc, this[i], i, this) : this[i]
+    acc = acc ? cbfn (acc, this[i], i, this) : this[i]
   }
   return acc
 }
